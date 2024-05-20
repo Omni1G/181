@@ -1,13 +1,3 @@
-[package]
-name = "WDS"
-version = "0.1.0"
-authors = ["Omni"]
-edition = "2021"
-
-[dependencies]
-
-
-
 use ink_prelude::{string::String, vec::Vec};
 use ink_storage::traits::{PackedLayout, SpreadLayout};
 use SafeMath as SafeMath;
