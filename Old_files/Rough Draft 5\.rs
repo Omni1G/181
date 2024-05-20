@@ -43,7 +43,7 @@ mod EgldValueExtractingNFT {
             federal_reserve: AccountId, FRNYUS33 XXX
             gold_contract: GoldContract, FRNYUS33 XXX
             mortgage_contract: MortgageContract,FRNYUS33 XXX
-            eth_contract: EthContract, FRNYUS33 XXX, 0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe //ETH Foundation wallet
+            eth_contract: EthContract,
             btc_contract: BtcContract,
             usdt_contract: UsdtContract,
             usdc_contract: UsdcContract,
