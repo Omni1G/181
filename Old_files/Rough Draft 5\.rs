@@ -2,11 +2,10 @@
 name = "WDS"
 version = "0.1.0"
 authors = ["Omni"]
-edition = "2024"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+edition = "2021"
 
 [dependencies]
+
 
 
 use ink_prelude::{string::String, vec::Vec};
