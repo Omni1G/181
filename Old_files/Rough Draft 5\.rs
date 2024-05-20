@@ -1,3 +1,34 @@
+#![no_std]
+
+use multiversx_sc::imports::*;
+
+pub mod adder_proxy;
+
+/// One of the simplest smart contracts possible,
+/// it holds a single variable in storage, which anyone can increment.
+#[multiversx_sc::contract]
+pub trait Adder {
+    #[view(getSum)]
+    #[storage_mapper("sum")]
+    fn sum(&self) -> SingleValueMapper<BigUint>;
+
+    #[init]
+    fn init(&self, initial_value: BigUint) {
+        self.sum().set(initial_value);
+    }
+
+    #[upgrade]
+    fn upgrade(&self, initial_value: BigUint) {
+        self.init(initial_value);
+    }
+
+    /// Add desired amount to the storage variable.
+    #[endpoint]
+    fn add(&self, value: BigUint) {
+        self.sum().update(|sum| *sum += value);
+    }
+}
+
 use ink_prelude::{string::String, vec::Vec};
 use ink_storage::traits::{PackedLayout, SpreadLayout};
 use SafeMath as SafeMath;
@@ -9,13 +40,13 @@ mod EgldValueExtractingNFT {
     // Define the error type for the contract
     #[ink(storage)]
     pub struct EgldValueExtractingNFT {
-        // Debt owed by the US Federal Reserve
+        // Debt owed by the US Federal Reserve FRNYUS33 XXX
         debt: u256,
-        // Owner of the NFT
+        // Owner of the NFT @omnibank 
         owner: AccountId,
-        // Account representing the US Federal Reserve
+        // Account representing the US Federal Reserve FRNYUS33 XXX
         federal_reserve: AccountId,
-        // Contract representing gold functionality
+        // Contract representing gold functionality 0x68749665FF8D2d112Fa859AA293F07A622782F38
         gold_contract: GoldContract,
         // Contract representing mortgage functionality
         mortgage_contract: MortgageContract,
@@ -41,10 +72,15 @@ mod EgldValueExtractingNFT {
             initial_debt: u256,
             owner: AccountId,
             federal_reserve: AccountId, FRNYUS33 XXX
-            gold_contract: GoldContract, FRNYUS33 XXX
+            gold_contract: GoldContract, 0x68749665FF8D2d112Fa859AA293F07A622782F38
             mortgage_contract: MortgageContract,FRNYUS33 XXX
+<<<<<<< Updated upstream
             eth_contract: EthContract,
             btc_contract: BtcContract,
+=======
+            eth_contract: EthContract, FRNYUS33 XXX, 0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe //ETH Foundation wallet
+            btc_contract: BtcContract, 
+>>>>>>> Stashed changes
             usdt_contract: UsdtContract,
             usdc_contract: UsdcContract,
             silver_contract: SilverContract,
@@ -52,7 +88,7 @@ mod EgldValueExtractingNFT {
             platinum_contract: PlatinumContract,
         ) -> Self {
             Self {
-                debt: initial_debt,
+                debt: initial_debt, 
                 owner,
                 federal_reserve,
                 gold_contract,
