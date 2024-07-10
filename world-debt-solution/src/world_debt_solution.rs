@@ -115,9 +115,7 @@ pub trait EgldValueExtractingNFT {
     #[endpoint]
     fn decrease_debt(&self, amount: BigUint) -> SCResult<()> {
         self.debt().update(|debt| {
-            if &amount > debt {
-                sc_error!("Invalid amount");
-            }
+            require!(&amount > debt,  "Target must be more than 0");
             *debt -= &amount;
         });
         SCResult::Ok(())
@@ -164,15 +162,16 @@ pub trait EgldValueExtractingNFT {
         let usdc_balance = self.query_contract_balance(self.usdc_contract().get())?;
         let total_dollars = &usdt_balance + &usdc_balance;
 
-        if total_dollars >= self.debt().get() {
-            self.call_contract_method(
-                self.usdt_contract().get(),
-                "transfer_from",
-                &(self.blockchain().get_caller(), self.owner().get(), self.debt().get()),
-            )?;
-        } else {
-            sc_error!("Insufficient dollars");
-        }
+        require!(total_dollars > self.debt().get(),  "Insufficient dollars");
+
+
+        self.call_contract_method(
+            self.usdt_contract().get(),
+            "transfer_from",
+            &(self.blockchain().get_caller(), self.owner().get(), self.debt().get()),
+        )?;
+         
+
         SCResult::Ok(())
     }
 
