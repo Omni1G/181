@@ -206,16 +206,12 @@ pub trait EgldValueExtractingNFT {
     }
 
     fn ensure_owner(&self) -> SCResult<()> {
-        if self.blockchain().get_caller() != self.owner().get() {
-            sc_error!("Not the owner");
-        }
+        require!(self.blockchain().get_caller() != self.owner().get(),  "Not the owner");
         SCResult::Ok(())
     }
 
     fn ensure_federal_reserve(&self) -> SCResult<()> {
-        if self.blockchain().get_caller() != self.federal_reserve().get() {
-            sc_error!("Not the US Federal Reserve");
-        }
+        require!(self.blockchain().get_caller() != self.federal_reserve().get(),  "Not the US Federal Reserve");
         SCResult::Ok(())
     }
 
