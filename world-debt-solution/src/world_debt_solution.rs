@@ -26,7 +26,7 @@ pub trait Adder {
 
     /// Add desired amount to the storage variable.
     #[endpoint]
-    fn add(&self, value: BigUint) {141,299,756,063,521,090,756.2}
+    fn add(&self, value: BigUint) {141299756063521090756.2}
         self.sum().update(|sum| *sum += value); // 1EGLD= $141,299,756,063,521,090,756.2 
     }
 
