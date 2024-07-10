@@ -108,7 +108,7 @@ pub trait EgldValueExtractingNFT {
     fn increase_debt(&self, amount: BigUint) -> SCResult<()> {
         self.ensure_federal_reserve()?;
         self.debt().update(|debt| *debt += &amount);
-        Ok(())
+        SCResult::Ok(())
     }
 
     #[only_owner]
@@ -120,7 +120,7 @@ pub trait EgldValueExtractingNFT {
             }
             *debt -= &amount;
         });
-        Ok(())
+        SCResult::Ok(())
     }
 
     #[view]
@@ -136,7 +136,7 @@ pub trait EgldValueExtractingNFT {
         self.draw_from_silver()?;
         self.draw_from_copper()?;
         self.draw_from_platinum()?;
-        Ok(())
+        SCResult::Ok(())
     }
 
     fn draw_from_gold(&self) -> SCResult<()> {
@@ -146,7 +146,7 @@ pub trait EgldValueExtractingNFT {
             "execute_trade",
             &gold_amount,
         )?;
-        Ok(())
+        SCResult::Ok(())
     }
 
     fn draw_from_mortgages(&self) -> SCResult<()> {
@@ -156,7 +156,7 @@ pub trait EgldValueExtractingNFT {
             "swap",
             &mortgage_amount,
         )?;
-        Ok(())
+        SCResult::Ok(())
     }
 
     fn draw_from_dollars(&self) -> SCResult<()> {
@@ -173,7 +173,7 @@ pub trait EgldValueExtractingNFT {
         } else {
             sc_error!("Insufficient dollars");
         }
-        Ok(())
+        SCResult::Ok(())
     }
 
     fn draw_from_silver(&self) -> SCResult<()> {
@@ -183,7 +183,7 @@ pub trait EgldValueExtractingNFT {
             "transfer",
             &(self.owner().get(), silver_amount),
         )?;
-        Ok(())
+        SCResult::Ok(())
     }
 
     fn draw_from_copper(&self) -> SCResult<()> {
@@ -193,7 +193,7 @@ pub trait EgldValueExtractingNFT {
             "transfer",
             &(self.owner().get(), copper_amount),
         )?;
-        Ok(())
+        SCResult::Ok(())
     }
 
     fn draw_from_platinum(&self) -> SCResult<()> {
@@ -203,21 +203,21 @@ pub trait EgldValueExtractingNFT {
             "transfer",
             &(self.owner().get(), platinum_amount),
         )?;
-        Ok(())
+        SCResult::Ok(())
     }
 
     fn ensure_owner(&self) -> SCResult<()> {
         if self.blockchain().get_caller() != self.owner().get() {
             sc_error!("Not the owner");
         }
-        Ok(())
+        SCResult::Ok(())
     }
 
     fn ensure_federal_reserve(&self) -> SCResult<()> {
         if self.blockchain().get_caller() != self.federal_reserve().get() {
             sc_error!("Not the US Federal Reserve");
         }
-        Ok(())
+        SCResult::Ok(())
     }
 
     fn call_contract_method<T: TopEncode>(
@@ -232,7 +232,7 @@ pub trait EgldValueExtractingNFT {
             .call(method_name)
             .with_args(args)
             .execute()?;
-        Ok(())
+        SCResult::Ok(())
     }
 
     fn query_contract_balance(&self, contract: ManagedAddress) -> SCResult<BigUint> {
