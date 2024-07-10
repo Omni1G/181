@@ -1,0 +1,1 @@
+/home/vladimir/Git/181/world-debt-solution/target/debug/world-debt-solution-meta: /home/vladimir/Git/181/world-debt-solution/meta/src/main.rs /home/vladimir/Git/181/world-debt-solution/src/world_debt_solution.rs

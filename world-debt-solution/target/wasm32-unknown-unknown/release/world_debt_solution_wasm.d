@@ -1,0 +1,1 @@
+/home/vladimir/Git/181/world-debt-solution/target/wasm32-unknown-unknown/release/world_debt_solution_wasm.wasm: /home/vladimir/Git/181/world-debt-solution/src/world_debt_solution.rs /home/vladimir/Git/181/world-debt-solution/wasm/src/lib.rs
