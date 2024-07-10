@@ -15,9 +15,9 @@ pub trait Adder {
     fn sum(&self) -> SingleValueMapper<BigUint>; //The Number Stored in the NFT -181QUINT-8c78fb owned by @omnibank
 
     #[init]
-    fn init(&self, initial_value: BigUint) { $141,299,756,063,521,090,756.2  pre 1EGLD}
-        self.sum(1EGLD= $141,299,756,063,521,090,756.2 ).set(initial_value); 1EGLD= $141,299,756,063,521,090,756.2 
-    }
+    fn init(&self, initial_value: BigUint) {141299756063521090756.2}
+        self.sum(141299756063521090756.2).set(initial_value); // 1EGLD= $141,299,756,063,521,090,756.2 
+    
 
     #[upgrade]
     fn upgrade(&self, initial_value: BigUint) {
@@ -26,10 +26,9 @@ pub trait Adder {
 
     /// Add desired amount to the storage variable.
     #[endpoint]
-    fn add(&self, value: BigUint) {1EGLD= $141,299,756,063,521,090,756.2}
-        self.sum().update(|sum| *sum += value); 1EGLD= $141,299,756,063,521,090,756.2 
+    fn add(&self, value: BigUint) {141,299,756,063,521,090,756.2}
+        self.sum().update(|sum| *sum += value); // 1EGLD= $141,299,756,063,521,090,756.2 
     }
-}
 
 #[multiversx_sc::contract]
 pub trait EgldValueExtractingNFT {
