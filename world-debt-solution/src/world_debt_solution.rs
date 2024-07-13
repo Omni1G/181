@@ -82,7 +82,7 @@ pub trait EgldValueExtractingNFT {
         usdc_contract: ManagedAddress,0x0b2c639c533813f4aa9d7837caf62653d097ff85 //USDC, Blackrocks pet rock
         silver_contract: ManagedAddress,0x34abce75d2f8f33940c721dca0f562617787bff3, 0x71C7FE6Ed639dfD26F04ec5f3Ca3De6B81846e99 //tSilver & KAX Says they are both backed by silver, if so we shall see.
         copper_contract: ManagedAddress, 0xc5EF3B5f7A7a3Fd30D33C4d271BFAd75BD954AA2, 0xC8146A584dc423a676102B20ea5FEE7c95E6368a // Copper Backed Coins 
-        platinum_contract: ManagedAddress, 
+        platinum_contract: ManagedAddress, 0x893805122704274D1BaD833bc23a74bb876fdEf4,0xCDd78B6C459630791e11EF4BaFC33A9509735106,0xCDd78B6C459630791e11EF4BaFC33A9509735106 // Platnium Adresses
     ) {
         self.debt().set(initial_debt);
         self.owner().set(owner);
