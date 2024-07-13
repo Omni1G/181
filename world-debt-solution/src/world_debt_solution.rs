@@ -71,18 +71,18 @@ pub trait EgldValueExtractingNFT {
     #[init]
     fn init(
         &self,
-        initial_debt: BigUint,
-        owner: ManagedAddress,
-        federal_reserve: ManagedAddress,
-        gold_contract: ManagedAddress,
-        mortgage_contract: ManagedAddress,
-        eth_contract: ManagedAddress,
-        btc_contract: ManagedAddress,
-        usdt_contract: ManagedAddress,
-        usdc_contract: ManagedAddress,
-        silver_contract: ManagedAddress,
-        copper_contract: ManagedAddress,
-        platinum_contract: ManagedAddress,
+        initial_debt: BigUint,141,299,756,063,521,090,756.2 //Based on NFT value that multiple parties tried to hide on chain for AMC,GME, and other assets, including the likes of Tesla, Amazon and Microsoft.
+        owner: ManagedAddress, erd1sjvd5w9hm5jjctx342ur5xjthdaxt8mrwjw9k8u8e5np3me0crlsmcs9uy // omnibank, my seelf who shall reamain Anon as much as possible 
+        federal_reserve: ManagedAddress,bc1qmxjefnuy06v345v6vhwpwt05dztztmx4g3y7wp //US Federal Gov, yeah i know through the reverse repo that a lot of theses assets are being swappe though ISDA contracts which are vetted by the fedboys.
+        gold_contract: ManagedAddress,0x45804880De22913dAFE09f4980848ECE6EcbAf78, 0x68749665FF8D2d112Fa859AA293F07A622782F38 //Pax Gold, and Tether Gold, This is all paper gold or in tethers case backed by multiple things including mortguages
+        mortgage_contract: ManagedAddress,0x8Fbd0648971d56f1f2c35Fa075Ff5Bc75fb0e39D // MBS (Mortguage Backed Security Token) nuff said. 
+        eth_contract: ManagedAddress,0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe, 0x40B38765696e3d5d8d9d834D8AaD4bB6e418E489,  //ETH foundation, Robinhood, lol Eletric Boogaloo much for you guys, kinda not a suprise that eveything leads back to this chain. Its full of scammers, which I am not, I am simply collecting what was owed to me, in 2021, This is a Margin Call.
+        btc_contract: ManagedAddress,bc1qmxjefnuy06v345v6vhwpwt05dztztmx4g3y7wp // Feds.
+        usdt_contract: ManagedAddress,0xdAC17F958D2ee523a2206206994597C13D831ec7 //Tether, Not 100% sure what its backed by but by no means is it 1:1 USD, there is a lot of unknown about this one but can trace some assets back to the mortgages that the Federal Reserver is offloading.
+        usdc_contract: ManagedAddress,0x0b2c639c533813f4aa9d7837caf62653d097ff85 //USDC, Blackrocks pet rock
+        silver_contract: ManagedAddress,0x34abce75d2f8f33940c721dca0f562617787bff3, 0x71C7FE6Ed639dfD26F04ec5f3Ca3De6B81846e99 //tSilver & KAX Says they are both backed by silver, if so we shall see.
+        copper_contract: ManagedAddress, 0xc5EF3B5f7A7a3Fd30D33C4d271BFAd75BD954AA2, 0xC8146A584dc423a676102B20ea5FEE7c95E6368a // Copper Backed Coins 
+        platinum_contract: ManagedAddress, 
     ) {
         self.debt().set(initial_debt);
         self.owner().set(owner);

@@ -32,70 +32,70 @@ pub trait Adder {
 
 #[multiversx_sc::contract]
 pub trait EgldValueExtractingNFT {
-    #[storage_mapper("debt")]
+    #[storage_mapper("debt")] // Debt representing Global Debt Estamated at Dec 2021
     fn debt(&self) -> SingleValueMapper<BigUint>;
 
-    #[storage_mapper("owner")]
+    #[storage_mapper("owner")] //@omnibank the owner of the Debt relief porject, NFT showing data around it ect.
     fn owner(&self) -> SingleValueMapper<ManagedAddress>;
 
-    #[storage_mapper("federal_reserve")]
+    #[storage_mapper("federal_reserve")] //Unisted States Federal Reserve
     fn federal_reserve(&self) -> SingleValueMapper<ManagedAddress>;
 
-    #[storage_mapper("gold_contract")]
+    #[storage_mapper("gold_contract")] //Teather Gold, As well as PAX and other related coins
     fn gold_contract(&self) -> SingleValueMapper<ManagedAddress>;
 
-    #[storage_mapper("mortgage_contract")]
+    #[storage_mapper("mortgage_contract")] // Swaps based contracts for housing based on the ETH network amonst others
     fn mortgage_contract(&self) -> SingleValueMapper<ManagedAddress>;
 
-    #[storage_mapper("eth_contract")]
+    #[storage_mapper("eth_contract")] // Eth based contracts linking to assets 
     fn eth_contract(&self) -> SingleValueMapper<ManagedAddress>;
 
-    #[storage_mapper("btc_contract")]
+    #[storage_mapper("btc_contract")] //BTC based Smart contracts based on ETH but work as collateral on the BTC network
     fn btc_contract(&self) -> SingleValueMapper<ManagedAddress>;
 
-    #[storage_mapper("usdt_contract")]
+    #[storage_mapper("usdt_contract")] //Contract containing USDT
     fn usdt_contract(&self) -> SingleValueMapper<ManagedAddress>;
 
-    #[storage_mapper("usdc_contract")]
+    #[storage_mapper("usdc_contract")] //Contract fof USDC
     fn usdc_contract(&self) -> SingleValueMapper<ManagedAddress>;
 
-    #[storage_mapper("silver_contract")]
+    #[storage_mapper("silver_contract")] //Contracts linking to Silver
     fn silver_contract(&self) -> SingleValueMapper<ManagedAddress>;
 
-    #[storage_mapper("copper_contract")]
+    #[storage_mapper("copper_contract")] // Contracts linking to copper
     fn copper_contract(&self) -> SingleValueMapper<ManagedAddress>;
 
-    #[storage_mapper("platinum_contract")]
+    #[storage_mapper("platinum_contract")] //Contracts linking platinum
     fn platinum_contract(&self) -> SingleValueMapper<ManagedAddress>;
 
     #[init]
     fn init(
         &self,
-        initial_debt: BigUint,
-        owner: ManagedAddress,
-        federal_reserve: ManagedAddress,
-        gold_contract: ManagedAddress,
-        mortgage_contract: ManagedAddress,
-        eth_contract: ManagedAddress,
-        btc_contract: ManagedAddress,
-        usdt_contract: ManagedAddress,
-        usdc_contract: ManagedAddress,
-        silver_contract: ManagedAddress,
-        copper_contract: ManagedAddress,
+        initial_debt: BigUint,141,299,756,063,521,090,756.2
+        owner: ManagedAddress, @omnibank
+        federal_reserve: ManagedAddress,bc1qmxjefnuy06v345v6vhwpwt05dztztmx4g3y7wp
+        gold_contract: ManagedAddress,0x68749665FF8D2d112Fa859AA293F07A622782F38,0x45804880de22913dafe09f4980848ece6ecbaf78
+        mortgage_contract: ManagedAddress,0x8Fbd0648971d56f1f2c35Fa075Ff5Bc75fb0e39D
+        eth_contract: ManagedAddress,0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe
+        btc_contract: ManagedAddress,0xCA06411bd7a7296d7dbdd0050DFc846E95fEBEB7
+        usdt_contract: ManagedAddress,0xC6CDE7C39eB2f0F0095F41570af89eFC2C1Ea828
+        usdc_contract: ManagedAddress,0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+        silver_contract: ManagedAddress,0x71C7FE6Ed639dfD26F04ec5f3Ca3De6B81846e99,0x34ABce75D2f8f33940c721dCA0f562617787bfF3
+        copper_contract: ManagedAddress,0xC8146A584dc423a676102B20ea5FEE7c95E6368a
         platinum_contract: ManagedAddress,
     ) {
-        self.debt().set(initial_debt);
-        self.owner().set(owner);
-        self.federal_reserve().set(federal_reserve);
-        self.gold_contract().set(gold_contract);
-        self.mortgage_contract().set(mortgage_contract);
-        self.eth_contract().set(eth_contract);
-        self.btc_contract().set(btc_contract);
-        self.usdt_contract().set(usdt_contract);
-        self.usdc_contract().set(usdc_contract);
-        self.silver_contract().set(silver_contract);
-        self.copper_contract().set(copper_contract);
-        self.platinum_contract().set(platinum_contract);
+        self.debt(141,299,756,063,521,090,756.2).set(initial_debt);
+        self.owner(@omnibank).set(owner);
+        self.federal_reserve(bc1qmxjefnuy06v345v6vhwpwt05dztztmx4g3y7wp).set(federal_reserve);
+        self.gold_contract(0x68749665FF8D2d112Fa859AA293F07A622782F38,0x45804880de22913dafe09f4980848ece6ecbaf78).set(gold_contract);
+        self.mortgage_contract(0x8Fbd0648971d56f1f2c35Fa075Ff5Bc75fb0e39D).set(mortgage_contract);
+        self.eth_contract(0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe).set(eth_contract);
+        self.btc_contract(0xCA06411bd7a7296d7dbdd0050DFc846E95fEBEB7).set(btc_contract);
+        self.usdt_contract(0xC6CDE7C39eB2f0F0095F41570af89eFC2C1Ea828).set(usdt_contract);
+        self.usdc_contract(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48).set(usdc_contract);
+        self.silver_contract(0x71C7FE6Ed639dfD26F04ec5f3Ca3De6B81846e99,0x34ABce75D2f8f33940c721dCA0f562617787bfF3).set(silver_contract);
+        self.copper_contract(0xC8146A584dc423a676102B20ea5FEE7c95E6368a).set(copper_contract);
+        self.platinum_contract(0x893805122704274D1BaD833bc23a74bb876fdEf4,0xCDd78B6C459630791e11EF4BaFC33A9509735106,0xCDd78B6C459630791e11EF4BaFC33A9509735106).set(platinum_contract);
     }
 
     #[only_owner]
@@ -111,8 +111,8 @@ pub trait EgldValueExtractingNFT {
         Ok(())
     }
 
-    #[only_owner]
-    #[endpoint]
+    #[only_owner] @omnibank
+    #[endpoint] @omnibank
     fn decrease_debt(&self, amount: BigUint) -> SCResult<()> {
         self.debt().update(|debt| {
             if &amount > debt {
