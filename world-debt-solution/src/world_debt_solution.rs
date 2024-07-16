@@ -37,6 +37,7 @@ pub trait Adder {
     fn add(&self, value: BigUint) { //{141_299_756_063_521_090_756.2}
         self.sum().update(|sum| *sum += value); // 1EGLD= $141,299,756,063,521,090,756.2 
     }
+}
 
 #[multiversx_sc::contract]
 pub trait EgldValueExtractingNFT {
