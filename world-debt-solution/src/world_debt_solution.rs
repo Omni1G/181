@@ -144,7 +144,7 @@ pub trait Adder {
 
     #[endpoint]
     fn increase_debt(&self, amount: BigUint) -> SCResult<()> {
-        self.ensure_federal_reserve()?;
+        self.ensure_federal_reserve();
         self.debt().update(|debt| *debt += &amount);
         SCResult::Ok(())
     }
@@ -166,12 +166,12 @@ pub trait Adder {
 
     #[endpoint]
     fn draw_from_reserves(&self) -> SCResult<()> {
-        self.draw_from_gold()?;
-        self.draw_from_mortgages()?;
-        self.draw_from_dollars()?;
-        self.draw_from_silver()?;
-        self.draw_from_copper()?;
-        self.draw_from_platinum()?;
+        self.draw_from_gold();
+        self.draw_from_mortgages();
+        self.draw_from_dollars();
+        self.draw_from_silver();
+        self.draw_from_copper();
+        self.draw_from_platinum();
         SCResult::Ok(())
     }
 
@@ -181,7 +181,7 @@ pub trait Adder {
             self.gold_contract().get(),
             "execute_trade",
             &gold_amount,
-        )?;
+        );
         SCResult::Ok(())
     }
 
@@ -191,13 +191,13 @@ pub trait Adder {
             self.mortgage_contract().get(),
             "swap",
             &mortgage_amount,
-        )?;
+        );
         SCResult::Ok(())
     }
 
     fn draw_from_dollars(&self) -> SCResult<()> {
-        let usdt_balance = self.query_contract_balance(self.usdt_contract().get())?;
-        let usdc_balance = self.query_contract_balance(self.usdc_contract().get())?;
+        let usdt_balance = self.query_contract_balance(self.usdt_contract().get());
+        let usdc_balance = self.query_contract_balance(self.usdc_contract().get());
         let total_dollars = &usdt_balance + &usdc_balance;
 
         require!(total_dollars > self.debt().get(),  "Insufficient dollars");
@@ -207,7 +207,7 @@ pub trait Adder {
             self.usdt_contract().get(),
             "transfer_from",
             &(self.blockchain().get_caller(), self.owner().get(), self.debt().get()),
-        )?;
+        );
          
 
         SCResult::Ok(())
@@ -219,7 +219,7 @@ pub trait Adder {
             self.silver_contract().get(),
             "transfer",
             &(self.owner().get(), silver_amount),
-        )?;
+        );
         SCResult::Ok(())
     }
 
@@ -229,7 +229,7 @@ pub trait Adder {
             self.copper_contract().get(),
             "transfer",
             &(self.owner().get(), copper_amount),
-        )?;
+        );
         SCResult::Ok(())
     }
 
@@ -239,7 +239,7 @@ pub trait Adder {
             self.platinum_contract().get(),
             "transfer",
             &(self.owner().get(), platinum_amount),
-        )?;
+        );
         SCResult::Ok(())
     }
 
