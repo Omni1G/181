@@ -2,22 +2,30 @@
 
 #[allow(unused_imports)]
 use multiversx_sc::imports::*;
-use multiversx_sc::derive_imports::*;
 
-pub mod adder_proxy;
+const initial_debt: f32 = 141_299_756_063_521_090_756.2; //Based on NFT value that multiple parties tried to hide on chain for AMC,GME, and other assets, including the likes of Tesla, Amazon and Microsoft.
 
-/// One of the simplest smart contracts possible,
+const owner: &str = "erd1sjvd5w9hm5jjctx342ur5xjthdaxt8mrwjw9k8u8e5np3me0crlsmcs9uy"; // omnibank, my seelf who shall reamain Anon as much as possible 
+const federal_reserve: &str = "bc1qmxjefnuy06v345v6vhwpwt05dztztmx4g3y7wp"; //US Federal Gov, yeah i know through the reverse repo that a lot of theses assets are being swappe though ISDA contracts which are vetted by the fedboys.
+const gold_contract: &str  = "0x45804880De22913dAFE09f4980848ECE6EcbAf78"; //0x68749665FF8D2d112Fa859AA293F07A622782F38 //Pax Gold, and Tether Gold, This is all paper gold or in tethers case backed by multiple things including mortguages
+const mortgage_contract: &str = "0x8Fbd0648971d56f1f2c35Fa075Ff5Bc75fb0e39D"; // MBS (Mortguage Backed Security Token) nuff said. 
+const eth_contract: &str = "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe"; // 0x40B38765696e3d5d8d9d834D8AaD4bB6e418E489,  //ETH foundation, Robinhood, lol Eletric Boogaloo much for you guys, kinda not a suprise that eveything leads back to this chain. Its full of scammers, which I am not, I am simply collecting what was owed to me, in 2021, This is a Margin Call.
+const btc_contract: &str = "bc1qmxjefnuy06v345v6vhwpwt05dztztmx4g3y7wp"; // Feds.
+const usdt_contract: &str = "0xdAC17F958D2ee523a2206206994597C13D831ec7"; //Tether, Not 100% sure what its backed by but by no means is it 1:1 USD, there is a lot of unknown about this one but can trace some assets back to the mortgages that the Federal Reserver is offloading.
+const usdc_contract: &str = "0x0b2c639c533813f4aa9d7837caf62653d097ff85"; //USDC, Blackrocks pet rock
+const silver_contract: &str = "0x34abce75d2f8f33940c721dca0f562617787bff3"; //0x71C7FE6Ed639dfD26F04ec5f3Ca3De6B81846e99 //tSilver & KAX Says they are both backed by silver, if so we shall see.
+const copper_contract: &str = "0xc5EF3B5f7A7a3Fd30D33C4d271BFAd75BD954AA2"; // 0xC8146A584dc423a676102B20ea5FEE7c95E6368a // Copper Backed Coins 
+const platinum_contract: &str =  "0x893805122704274D1BaD833bc23a74bb876fdEf4"; // 0xCDd78B6C459630791e11EF4BaFC33A9509735106,0xCDd78B6C459630791e11EF4BaFC33A9509735106 // Platnium Adresses
+
+
+
+/// One of the simplest smart contracts possible,       
 /// it holds a single variable in storage, which anyone can increment.
 #[multiversx_sc::contract]
 pub trait Adder {
     #[view(getSum)]  //@omnibank - RealValue 
     #[storage_mapper("sum")]  //1EGLD= $141,299,756,063,521,090,756.2  CAD
     fn sum(&self) -> SingleValueMapper<BigUint>; //The Number Stored in the NFT -181QUINT-8c78fb owned by @omnibank
-
-    #[init]
-    fn init(&self, initial_value: BigUint) {141299756063521090756.2}
-        self.sum(141299756063521090756.2).set(initial_value); // 1EGLD= $141,299,756,063,521,090,756.2 
-    
 
     #[upgrade]
     fn upgrade(&self, initial_value: BigUint) {
@@ -26,7 +34,7 @@ pub trait Adder {
 
     /// Add desired amount to the storage variable.
     #[endpoint]
-    fn add(&self, value: BigUint) {141299756063521090756.2}
+    fn add(&self, value: BigUint) {141_299_756_063_521_090_756.2}
         self.sum().update(|sum| *sum += value); // 1EGLD= $141,299,756,063,521,090,756.2 
     }
 
@@ -67,36 +75,6 @@ pub trait EgldValueExtractingNFT {
 
     #[storage_mapper("platinum_contract")]
     fn platinum_contract(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[init]
-    fn init(
-        &self,
-        initial_debt: BigUint,141,299,756,063,521,090,756.2 //Based on NFT value that multiple parties tried to hide on chain for AMC,GME, and other assets, including the likes of Tesla, Amazon and Microsoft.
-        owner: ManagedAddress, erd1sjvd5w9hm5jjctx342ur5xjthdaxt8mrwjw9k8u8e5np3me0crlsmcs9uy // omnibank, my seelf who shall reamain Anon as much as possible 
-        federal_reserve: ManagedAddress,bc1qmxjefnuy06v345v6vhwpwt05dztztmx4g3y7wp //US Federal Gov, yeah i know through the reverse repo that a lot of theses assets are being swappe though ISDA contracts which are vetted by the fedboys.
-        gold_contract: ManagedAddress,0x45804880De22913dAFE09f4980848ECE6EcbAf78, 0x68749665FF8D2d112Fa859AA293F07A622782F38 //Pax Gold, and Tether Gold, This is all paper gold or in tethers case backed by multiple things including mortguages
-        mortgage_contract: ManagedAddress,0x8Fbd0648971d56f1f2c35Fa075Ff5Bc75fb0e39D // MBS (Mortguage Backed Security Token) nuff said. 
-        eth_contract: ManagedAddress,0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe, 0x40B38765696e3d5d8d9d834D8AaD4bB6e418E489,  //ETH foundation, Robinhood, lol Eletric Boogaloo much for you guys, kinda not a suprise that eveything leads back to this chain. Its full of scammers, which I am not, I am simply collecting what was owed to me, in 2021, This is a Margin Call.
-        btc_contract: ManagedAddress,bc1qmxjefnuy06v345v6vhwpwt05dztztmx4g3y7wp // Feds.
-        usdt_contract: ManagedAddress,0xdAC17F958D2ee523a2206206994597C13D831ec7 //Tether, Not 100% sure what its backed by but by no means is it 1:1 USD, there is a lot of unknown about this one but can trace some assets back to the mortgages that the Federal Reserver is offloading.
-        usdc_contract: ManagedAddress,0x0b2c639c533813f4aa9d7837caf62653d097ff85 //USDC, Blackrocks pet rock
-        silver_contract: ManagedAddress,0x34abce75d2f8f33940c721dca0f562617787bff3, 0x71C7FE6Ed639dfD26F04ec5f3Ca3De6B81846e99 //tSilver & KAX Says they are both backed by silver, if so we shall see.
-        copper_contract: ManagedAddress, 0xc5EF3B5f7A7a3Fd30D33C4d271BFAd75BD954AA2, 0xC8146A584dc423a676102B20ea5FEE7c95E6368a // Copper Backed Coins 
-        platinum_contract: ManagedAddress, 0x893805122704274D1BaD833bc23a74bb876fdEf4,0xCDd78B6C459630791e11EF4BaFC33A9509735106,0xCDd78B6C459630791e11EF4BaFC33A9509735106 // Platnium Adresses
-    ) {
-        self.debt().set(initial_debt);
-        self.owner().set(owner);
-        self.federal_reserve().set(federal_reserve);
-        self.gold_contract().set(gold_contract);
-        self.mortgage_contract().set(mortgage_contract);
-        self.eth_contract().set(eth_contract);
-        self.btc_contract().set(btc_contract);
-        self.usdt_contract().set(usdt_contract);
-        self.usdc_contract().set(usdc_contract);
-        self.silver_contract().set(silver_contract);
-        self.copper_contract().set(copper_contract);
-        self.platinum_contract().set(platinum_contract);
-    }
 
     #[only_owner]
     #[endpoint]
