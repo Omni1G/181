@@ -21,8 +21,13 @@ const platinum_contract: &str =  "0x893805122704274D1BaD833bc23a74bb876fdEf4"; /
 
 /// One of the simplest smart contracts possible,       
 /// it holds a single variable in storage, which anyone can increment.
+// Reference: https://docs.multiversx.com/developers/developer-reference/sc-annotations/#multiversx_sccontract
 #[multiversx_sc::contract]
 pub trait Adder {
+    // Reference: https://docs.multiversx.com/developers/developer-reference/sc-annotations/#init
+    #[init]
+    fn init(&self) {}
+
     #[view(getSum)]  //@omnibank - RealValue 
     #[storage_mapper("sum")]  //1EGLD= $141,299,756,063,521,090,756.2  CAD
     fn sum(&self) -> SingleValueMapper<BigUint>; //The Number Stored in the NFT -181QUINT-8c78fb owned by @omnibank
@@ -39,10 +44,8 @@ pub trait Adder {
     fn add(&self, value: BigUint) { //{141_299_756_063_521_090_756.2}
         self.sum().update(|sum| *sum += value); // 1EGLD= $141,299,756,063,521,090,756.2 
     }
-}
 
-#[multiversx_sc::contract]
-pub trait EgldValueExtractingNFT {
+//pub trait EgldValueExtractingNFT {
     #[storage_mapper("debt")]
     fn debt(&self) -> SingleValueMapper<BigUint>;
 
