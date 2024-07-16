@@ -27,10 +27,12 @@ pub trait Adder {
     #[storage_mapper("sum")]  //1EGLD= $141,299,756,063,521,090,756.2  CAD
     fn sum(&self) -> SingleValueMapper<BigUint>; //The Number Stored in the NFT -181QUINT-8c78fb owned by @omnibank
 
+    /*
     #[upgrade]
     fn upgrade(&self, initial_value: BigUint) {
         self.init(initial_value); 
     }
+    */
 
     /// Add desired amount to the storage variable.
     #[endpoint]
