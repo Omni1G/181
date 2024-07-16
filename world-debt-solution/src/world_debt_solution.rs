@@ -41,43 +41,6 @@ pub trait Adder {
         self.sum().update(|sum| *sum += value); // 1EGLD= $141,299,756,063,521,090,756.2 
     }
 
-//pub trait EgldValueExtractingNFT {
-    #[storage_mapper("debt")]
-    fn debt(&self) -> SingleValueMapper<BigUint>;
-
-    #[storage_mapper("owner")]
-    fn owner(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[storage_mapper("federal_reserve")]
-    fn federal_reserve(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[storage_mapper("gold_contract")]
-    fn gold_contract(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[storage_mapper("mortgage_contract")]
-    fn mortgage_contract(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[storage_mapper("eth_contract")]
-    fn eth_contract(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[storage_mapper("btc_contract")]
-    fn btc_contract(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[storage_mapper("usdt_contract")]
-    fn usdt_contract(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[storage_mapper("usdc_contract")]
-    fn usdc_contract(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[storage_mapper("silver_contract")]
-    fn silver_contract(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[storage_mapper("copper_contract")]
-    fn copper_contract(&self) -> SingleValueMapper<ManagedAddress>;
-
-    #[storage_mapper("platinum_contract")]
-    fn platinum_contract(&self) -> SingleValueMapper<ManagedAddress>;
-
     #[only_owner]
     #[endpoint]
     fn set_debt(&self, new_debt: BigUint) {
