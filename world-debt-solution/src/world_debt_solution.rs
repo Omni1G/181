@@ -24,10 +24,6 @@ const platinum_contract: &str =  "0x893805122704274D1BaD833bc23a74bb876fdEf4"; /
 // Reference: https://docs.multiversx.com/developers/developer-reference/sc-annotations/#multiversx_sccontract
 #[multiversx_sc::contract]
 pub trait Adder {
-    // Reference: https://docs.multiversx.com/developers/developer-reference/sc-annotations/#init
-    #[init]
-    fn init(&self) {}
-
     #[view(getSum)]  //@omnibank - RealValue 
     #[storage_mapper("sum")]  //1EGLD= $141,299,756,063,521,090,756.2  CAD
     fn sum(&self) -> SingleValueMapper<BigUint>; //The Number Stored in the NFT -181QUINT-8c78fb owned by @omnibank
