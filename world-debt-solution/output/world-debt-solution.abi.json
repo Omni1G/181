@@ -1,0 +1,210 @@
+{
+    "buildInfo": {
+        "rustc": {
+            "version": "1.79.0",
+            "commitHash": "129f3b9964af4d4a709d1383930ade12dfe7c081",
+            "commitDate": "2024-06-10",
+            "channel": "Stable",
+            "short": "rustc 1.79.0 (129f3b996 2024-06-10)"
+        },
+        "contractCrate": {
+            "name": "world-debt-solution",
+            "version": "0.0.0"
+        },
+        "framework": {
+            "name": "multiversx-sc",
+            "version": "0.51.1"
+        }
+    },
+    "docs": [
+        "One of the simplest smart contracts possible,       ",
+        "it holds a single variable in storage, which anyone can increment."
+    ],
+    "name": "Adder",
+    "constructor": {
+        "inputs": [
+            {
+                "name": "initial_debt",
+                "type": "BigUint"
+            },
+            {
+                "name": "owner",
+                "type": "Address"
+            },
+            {
+                "name": "federal_reserve",
+                "type": "Address"
+            },
+            {
+                "name": "gold_contract",
+                "type": "Address"
+            },
+            {
+                "name": "mortgage_contract",
+                "type": "Address"
+            },
+            {
+                "name": "eth_contract",
+                "type": "Address"
+            },
+            {
+                "name": "btc_contract",
+                "type": "Address"
+            },
+            {
+                "name": "usdt_contract",
+                "type": "Address"
+            },
+            {
+                "name": "usdc_contract",
+                "type": "Address"
+            },
+            {
+                "name": "silver_contract",
+                "type": "Address"
+            },
+            {
+                "name": "copper_contract",
+                "type": "Address"
+            },
+            {
+                "name": "platinum_contract",
+                "type": "Address"
+            }
+        ],
+        "outputs": []
+    },
+    "upgradeConstructor": {
+        "inputs": [
+            {
+                "name": "initial_debt",
+                "type": "BigUint"
+            },
+            {
+                "name": "owner",
+                "type": "Address"
+            },
+            {
+                "name": "federal_reserve",
+                "type": "Address"
+            },
+            {
+                "name": "gold_contract",
+                "type": "Address"
+            },
+            {
+                "name": "mortgage_contract",
+                "type": "Address"
+            },
+            {
+                "name": "eth_contract",
+                "type": "Address"
+            },
+            {
+                "name": "btc_contract",
+                "type": "Address"
+            },
+            {
+                "name": "usdt_contract",
+                "type": "Address"
+            },
+            {
+                "name": "usdc_contract",
+                "type": "Address"
+            },
+            {
+                "name": "silver_contract",
+                "type": "Address"
+            },
+            {
+                "name": "copper_contract",
+                "type": "Address"
+            },
+            {
+                "name": "platinum_contract",
+                "type": "Address"
+            }
+        ],
+        "outputs": []
+    },
+    "endpoints": [
+        {
+            "name": "getSum",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "BigUint"
+                }
+            ]
+        },
+        {
+            "docs": [
+                "Add desired amount to the storage variable."
+            ],
+            "name": "add",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "value",
+                    "type": "BigUint"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "set_debt",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "new_debt",
+                    "type": "BigUint"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "increase_debt",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "amount",
+                    "type": "BigUint"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "decrease_debt",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "amount",
+                    "type": "BigUint"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "get_debt",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "BigUint"
+                }
+            ]
+        },
+        {
+            "name": "draw_from_reserves",
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        }
+    ],
+    "esdtAttributes": [],
+    "hasCallback": false,
+    "types": {}
+}

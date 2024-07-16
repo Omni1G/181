@@ -1,0 +1,252 @@
+{
+    "buildInfo": {
+        "rustc": {
+            "version": "1.79.0",
+            "commitHash": "129f3b9964af4d4a709d1383930ade12dfe7c081",
+            "commitDate": "2024-06-10",
+            "channel": "Stable",
+            "short": "rustc 1.79.0 (129f3b996 2024-06-10)"
+        },
+        "contractCrate": {
+            "name": "world-debt-solution",
+            "version": "0.0.0"
+        },
+        "framework": {
+            "name": "multiversx-sc",
+            "version": "0.51.1"
+        }
+    },
+    "abi": {
+        "docs": [
+            "One of the simplest smart contracts possible,       ",
+            "it holds a single variable in storage, which anyone can increment."
+        ],
+        "name": "Adder",
+        "constructor": {
+            "inputs": [
+                {
+                    "name": "initial_debt",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "owner",
+                    "type": "Address"
+                },
+                {
+                    "name": "federal_reserve",
+                    "type": "Address"
+                },
+                {
+                    "name": "gold_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "mortgage_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "eth_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "btc_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "usdt_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "usdc_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "silver_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "copper_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "platinum_contract",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        "upgradeConstructor": {
+            "inputs": [
+                {
+                    "name": "initial_debt",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "owner",
+                    "type": "Address"
+                },
+                {
+                    "name": "federal_reserve",
+                    "type": "Address"
+                },
+                {
+                    "name": "gold_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "mortgage_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "eth_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "btc_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "usdt_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "usdc_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "silver_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "copper_contract",
+                    "type": "Address"
+                },
+                {
+                    "name": "platinum_contract",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        "endpoints": [
+            {
+                "name": "getSum",
+                "mutability": "readonly",
+                "inputs": [],
+                "outputs": [
+                    {
+                        "type": "BigUint"
+                    }
+                ]
+            },
+            {
+                "docs": [
+                    "Add desired amount to the storage variable."
+                ],
+                "name": "add",
+                "mutability": "mutable",
+                "inputs": [
+                    {
+                        "name": "value",
+                        "type": "BigUint"
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "name": "set_debt",
+                "onlyOwner": true,
+                "mutability": "mutable",
+                "inputs": [
+                    {
+                        "name": "new_debt",
+                        "type": "BigUint"
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "name": "increase_debt",
+                "mutability": "mutable",
+                "inputs": [
+                    {
+                        "name": "amount",
+                        "type": "BigUint"
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "name": "decrease_debt",
+                "onlyOwner": true,
+                "mutability": "mutable",
+                "inputs": [
+                    {
+                        "name": "amount",
+                        "type": "BigUint"
+                    }
+                ],
+                "outputs": []
+            },
+            {
+                "name": "get_debt",
+                "mutability": "readonly",
+                "inputs": [],
+                "outputs": [
+                    {
+                        "type": "BigUint"
+                    }
+                ]
+            },
+            {
+                "name": "draw_from_reserves",
+                "mutability": "mutable",
+                "inputs": [],
+                "outputs": []
+            }
+        ],
+        "esdtAttributes": [],
+        "hasCallback": false,
+        "types": {}
+    },
+    "code": "0061736d0100000001370a6000017f60027f7f017f60000060027f7f0060017f0060017f017f60037f7f7f017f60037f7f7f0060027f7e0060057f7f7e7f7f017f02ac041803656e760b7369676e616c4572726f72000303656e760e626967496e74536574496e743634000803656e761b6d616e616765645472616e7366657256616c756545786563757465000903656e760d6d616e6167656443616c6c6572000403656e76136d616e616765644f776e657241646472657373000403656e76126d427566666572417070656e644279746573000603656e76126d616e616765645369676e616c4572726f72000403656e76126d427566666572476574417267756d656e74000103656e76106d4275666665724765744c656e677468000503656e7619626967496e74476574556e7369676e6564417267756d656e74000303656e760f6765744e756d417267756d656e7473000003656e760f6d4275666665725365744279746573000603656e76126d42756666657253746f726167654c6f6164000103656e76196d42756666657246726f6d426967496e74556e7369676e6564000103656e76136d42756666657253746f7261676553746f7265000103656e76176d427566666572546f426967496e74556e7369676e6564000103656e760d6d427566666572417070656e64000103656e7609626967496e74436d70000103656e76096d4275666665724571000103656e760e636865636b4e6f5061796d656e74000203656e7614626967496e7446696e697368556e7369676e6564000403656e7609626967496e74416464000703656e7609626967496e74537562000703656e760a626967496e745369676e00050328270000030300000201010600040503030505040000000000000000000000010202020202020202020503010003060f027f00419883080b7f0041a083080b079b010d066d656d6f7279020004696e697400360667657453756d0037036164640038087365745f6465627400390d696e6372656173655f64656274003a0d64656372656173655f64656274003b086765745f64656274003c12647261775f66726f6d5f7265736572766573003d0863616c6c4261636b003e077570677261646500360a5f5f646174615f656e6403000b5f5f686561705f6261736503010aeb08270e01017f101922004205100120000b1901017f419483084194830828020041016b220036020020000b0900200020011000000b0f00200020014200101c101c10021a0b1101017f1019220041014100100b1a20000b0c01017f10192200100320000b1e01017f1019220010042000101d101f4504400f0b41f0820841241000000b0b0020002001101241004c0b1101017f1019220220002001100b1a20020b430020001019220010071a200010084120470440418080084117102022002001200210051a200041978008410310051a200041fe8008411010051a20001006000b20000b0e01017f410010192200100920000b1400100a20004604400f0b419a800841191000000b0d00200010192200100c1a20000b1401017f101922022001100d1a20002002100e1a0b090020002001100e1a0b3e01017f2000102422011008412047044041e38008411b10202201200010101a200141978008410310051a200141fe8008411010051a20011006000b20010b0f002000102410192200100f1a20000b080020001018101b0b0a0041808208410d10200b0a0041bd8108410d10200b0a0041ca8108410d10200b0a00419f8108410f10200b0a00418d8208410f10200b0a0041ae8108410f10200b0a0041ef8108411110200b0a00418e8108411110200b0a0041e98208410310200b0a0041ec8208410410200b0a00419c8208410510200b0b0020002001101141004a0be601010c7f1013410c1023102221004101419c82084105102121014102418d8208410f10212102410341808208410d10212103410441ef8108411110212104410541e38108410c10212105410641d78108410c10212106410741ca8108410d10212107410841bd8108410d10212108410941ae8108410f10212109410a419f8108410f1021210a410b418e810841111021210b103320001025103420011026102e20021026102a2003102610302004102641e38108410c10202005102641d78108410c102020061026102c20071026102b20081026102f20091026102d200a10261031200b10260b0e001013410010231032102810140b2201037f1013410110231022210110322202102822002000200110152002200010250b1601017f1013101e41011023102221001033200010250b3701037f10134101102310222101101d102e1027101f45044041cf8208411a101a000b10332202102822002000200110152002200010250b4a01037f1013101e410110230240102222011033220210282200103504402000200020011016200010174100480d012002200010250f0b41a18208411a101a000b41b3800841301000000b0e001013410010231033102810140b900101017f101341001023103310281a102a10271029103310281a103010271029102c10271a10182100102b10271a2000200010181015200010331028103545044041bb82084114101a000b102c1027101d1a103410271a103310281a1018101b103310281a102f1027103410271a1029103310281a102d1027103410271a1029103310281a10311027103410271a10290b0300010b0ba8030200418080080b9403617267756d656e74206465636f6465206572726f722028293a2077726f6e67206e756d626572206f6620617267756d656e747363616e6e6f74207375627472616374206265636175736520726573756c7420776f756c64206265206e6567617469766573746f72616765206465636f6465206572726f7220286b65793a20626164206172726179206c656e677468706c6174696e756d5f636f6e7472616374636f707065725f636f6e747261637473696c7665725f636f6e7472616374757364635f636f6e7472616374757364745f636f6e74726163746274635f636f6e74726163746574685f636f6e74726163746d6f7274676167655f636f6e7472616374676f6c645f636f6e74726163746665646572616c5f726573657276656f776e6572546172676574206d757374206265206d6f7265207468616e2030496e73756666696369656e7420646f6c6c6172734e6f7420746865205553204665646572616c205265736572766573756d64656274456e64706f696e742063616e206f6e6c792062652063616c6c6564206279206f776e657200419483080b0438ffffff",
+    "report": {
+        "imports": [
+            "bigIntAdd",
+            "bigIntCmp",
+            "bigIntFinishUnsigned",
+            "bigIntGetUnsignedArgument",
+            "bigIntSetInt64",
+            "bigIntSign",
+            "bigIntSub",
+            "checkNoPayment",
+            "getNumArguments",
+            "mBufferAppend",
+            "mBufferAppendBytes",
+            "mBufferEq",
+            "mBufferFromBigIntUnsigned",
+            "mBufferGetArgument",
+            "mBufferGetLength",
+            "mBufferSetBytes",
+            "mBufferStorageLoad",
+            "mBufferStorageStore",
+            "mBufferToBigIntUnsigned",
+            "managedCaller",
+            "managedOwnerAddress",
+            "managedSignalError",
+            "managedTransferValueExecute",
+            "signalError"
+        ],
+        "isMemGrow": false,
+        "eiCheck": {
+            "eiVersion": "1.3",
+            "ok": true
+        },
+        "codeReport": {
+            "path": "../output/world-debt-solution.wasm",
+            "size": 2407,
+            "hasAllocator": false,
+            "hasPanic": "none"
+        }
+    }
+}
