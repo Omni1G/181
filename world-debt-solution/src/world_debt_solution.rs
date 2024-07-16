@@ -217,6 +217,6 @@ pub trait Adder {
             .method_name("balance_of")
             .execute()?
             .into_biguint()
-            .ok_or(sc_error!("Failed to query balance"))
+            .ok_or("Failed to query balance")
     }
 }
